@@ -1,0 +1,41 @@
+<div class="shadow border p-4">
+  @if (editUserId) {
+  <h2 class="text-xl font-semibold">Edit User</h2>
+  } @else {
+  <h2 class="text-xl font-semibold">Add User</h2>
+  }
+
+  <form [formGroup]="userForm" enctype="multipart/form-data">
+    <div class="flex flex-wrap">
+      <mat-form-field class="w-full">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" />
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput formControlName="age" />
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Address</mat-label>
+        <input type="text" matInput formControlName="address" />
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
+
+      <input type="file" formControlName="profile" />
+    </div>
+    <div class="flex justify-center">
+      @if (editUserId) {
+      <button mat-raised-button="primary" (click)="updateUser()">Update</button>
+      } @else {
+      <button mat-raised-button="primary" (click)="addUser()">Add</button>
+      }
+    </div>
+  </form>
+</div>
